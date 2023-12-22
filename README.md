@@ -1,35 +1,27 @@
 
-# React + TypeScript + Vite Deployment with Vercel
+# Assignment Week-9 (React + TypeScript + Vite )
 
-[Temporary Assignment W-9 Result deploy use Vercel](https://module-4-imanmaris99.vercel.app/)
+### React + TypeScript + Vite Deployment with Vercel
 
-# React + TypeScript + Vite
+**Result custom domain with DNS**
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+|       Tool     | Tool Website | My Link Website with Custom Domain |
+|----------------|--------------|------------------------------------|
+|<img width="55%" img src="https://logowik.com/content/uploads/images/vercel1868.jpg">|[Vercell](https://vercel.com/) |[https://module-4-imanmaris99.vercel.app/](https://module-4-imanmaris99.vercel.app/)|
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
+<br>
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-- Configure the top-level `parserOptions` property like this:
+<h4 align="center">last created on December 22, 2023</h4>
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+---
+
+
+<p align="center"></p>
+<p align="center"><i>copyright &copy; 2023</i></p>
+
+
+

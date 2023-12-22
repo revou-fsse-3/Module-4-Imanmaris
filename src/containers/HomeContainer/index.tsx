@@ -20,6 +20,21 @@ const HomeContainer = () => {
 
     const [users, setUsers] = useState<DataProps[]>([]); 
 
+    const [step, setStep] = useState<number>(1);
+    const handleNext = () => {
+        if(step === 3) {
+            return
+        }
+        setStep((prevState) => prevState + 1);
+    }
+
+    const handlePrevious = () => {
+        if(step === 1) {
+            return
+        }
+        setStep((prevState) => prevState - 1);
+    }
+
 
     const forMik = useFormik({
         initialValues: {
@@ -57,156 +72,167 @@ const HomeContainer = () => {
 
         <>
             <Card border className={'flex flex-wrap flex-col items-center'}>
-                <Card border={false} className={'flex'}>
-                    <Card border>
-                        <form onSubmit={forMik.handleSubmit} className=" h-[20rem] my-2 px-8 py-2 rounded-lg border-4 border-indigo-200 border-y-indigo-500 ">
-                            <div>
-                                <Text>{'Nama'}</Text>
-                                <Input className="border-solid border-2 border-sky-500" 
-                                name="nama"
-                                value={forMik.values.name}
-                                onChange={forMik.handleChange("name")}
-                                />
+                
+                <Card border={false}>
+                    {step === 1 && (
+                        <Card border>
+                            <form onSubmit={forMik.handleSubmit} className=" h-[20rem] my-2 px-8 py-2 rounded-lg border-4 border-indigo-200 border-y-indigo-500 ">
+                                <div>
+                                    <Text>{'Nama'}</Text>
+                                    <Input className="border-solid border-2 border-sky-500" 
+                                    name="nama"
+                                    value={forMik.values.name}
+                                    onChange={forMik.handleChange("name")}
+                                    />
 
-                                {
-                                    forMik.errors.name && (
-                                        <Text>{forMik.errors.name}</Text>
-                                    )
-                                }
-                            </div>
-                            <div>
-                                <Text>{'Email'}</Text>
-                                <Input className="border-solid border-2 border-sky-500" 
-                                name="email"
-                                value={forMik.values.email}
-                                onChange={forMik.handleChange("email")}
-                                />
+                                    {
+                                        forMik.errors.name && (
+                                            <Text>{forMik.errors.name}</Text>
+                                        )
+                                    }
+                                </div>
+                                <div>
+                                    <Text>{'Email'}</Text>
+                                    <Input className="border-solid border-2 border-sky-500" 
+                                    name="email"
+                                    value={forMik.values.email}
+                                    onChange={forMik.handleChange("email")}
+                                    />
 
-                                {
-                                    forMik.errors.email && (
-                                        <Text>{forMik.errors.email}</Text>
-                                    )
-                                }
-                            </div>
-                            <div>
-                                <Text>{'Tanggal Lahir'}</Text>
-                                <Input className="border-solid border-2 border-sky-500" 
-                                name="dob"
-                                value={forMik.values.dob}
-                                onChange={forMik.handleChange("dob")}
-                                />
+                                    {
+                                        forMik.errors.email && (
+                                            <Text>{forMik.errors.email}</Text>
+                                        )
+                                    }
+                                </div>
+                                <div>
+                                    <Text>{'Tanggal Lahir'}</Text>
+                                    <Input className="border-solid border-2 border-sky-500" 
+                                    name="dob"
+                                    value={forMik.values.dob}
+                                    onChange={forMik.handleChange("dob")}
+                                    />
 
-                                {
-                                    forMik.errors.dob && (
-                                        <Text>{forMik.errors.dob}</Text>
-                                    )
-                                }
-                            </div>
-                            {/* <Button label={"Submit"} type={"submit"} className="w-full py-1 text-sm bg-green-400 opacity-90 mt-3"/> */}
-                        
-                        </form >
-                        
-                    </Card>
+                                    {
+                                        forMik.errors.dob && (
+                                            <Text>{forMik.errors.dob}</Text>
+                                        )
+                                    }
+                                </div>
+                                {/* <Button label={"Submit"} type={"submit"} className="w-full py-1 text-sm bg-green-400 opacity-90 mt-3"/> */}
+                            
+                            </form >
+                            
+                        </Card>
+                    )}
+                    
+                    {step === 2 && (
+                        <Card border>
+                            <form onSubmit={forMik.handleSubmit} className=" h-[25rem] my-2 px-8 py-2 rounded-lg border-4 border-indigo-200 border-y-indigo-500 ">
+                                <div>
+                                    <Text>{'Alamat Jalan'}</Text>
+                                    <Input className="border-solid border-2 border-sky-500" 
+                                    name="Alamat Jalan"
+                                    value={forMik.values.street}
+                                    onChange={forMik.handleChange("street")}
+                                    />
 
-                    <Card border>
-                        <form onSubmit={forMik.handleSubmit} className=" h-[25rem] my-2 px-8 py-2 rounded-lg border-4 border-indigo-200 border-y-indigo-500 ">
-                            <div>
-                                <Text>{'Alamat Jalan'}</Text>
-                                <Input className="border-solid border-2 border-sky-500" 
-                                name="Alamat Jalan"
-                                value={forMik.values.street}
-                                onChange={forMik.handleChange("street")}
-                                />
+                                    {
+                                        forMik.errors.street && (
+                                            <Text>{forMik.errors.street}</Text>
+                                        )
+                                    }
+                                </div>
+                                <div>
+                                    <Text>{'Kota'}</Text>
+                                    <Input className="border-solid border-2 border-sky-500" 
+                                    name="Kota"
+                                    value={forMik.values.city}
+                                    onChange={forMik.handleChange("city")}
+                                    />
 
-                                {
-                                    forMik.errors.street && (
-                                        <Text>{forMik.errors.street}</Text>
-                                    )
-                                }
-                            </div>
-                            <div>
-                                <Text>{'Kota'}</Text>
-                                <Input className="border-solid border-2 border-sky-500" 
-                                name="Kota"
-                                value={forMik.values.city}
-                                onChange={forMik.handleChange("city")}
-                                />
+                                    {
+                                        forMik.errors.city && (
+                                            <Text>{forMik.errors.city}</Text>
+                                        )
+                                    }
+                                </div>
+                                <div>
+                                    <Text>{'Negara'}</Text>
+                                    <Input className="border-solid border-2 border-sky-500" 
+                                    name="Negara"
+                                    value={forMik.values.state}
+                                    onChange={forMik.handleChange("state")}
+                                    />
 
-                                {
-                                    forMik.errors.city && (
-                                        <Text>{forMik.errors.city}</Text>
-                                    )
-                                }
-                            </div>
-                            <div>
-                                <Text>{'Negara'}</Text>
-                                <Input className="border-solid border-2 border-sky-500" 
-                                name="Negara"
-                                value={forMik.values.state}
-                                onChange={forMik.handleChange("state")}
-                                />
+                                    {
+                                        forMik.errors.state && (
+                                            <Text>{forMik.errors.state}</Text>
+                                        )
+                                    }
+                                </div>
+                                <div>
+                                    <Text>{'Kode Zip'}</Text>
+                                    <Input className="border-solid border-2 border-sky-500" 
+                                    name="Kode Zip"
+                                    value={forMik.values.code}
+                                    onChange={forMik.handleChange("code")}
+                                    />
 
-                                {
-                                    forMik.errors.state && (
-                                        <Text>{forMik.errors.state}</Text>
-                                    )
-                                }
-                            </div>
-                            <div>
-                                <Text>{'Kode Zip'}</Text>
-                                <Input className="border-solid border-2 border-sky-500" 
-                                name="Kode Zip"
-                                value={forMik.values.code}
-                                onChange={forMik.handleChange("code")}
-                                />
+                                    {
+                                        forMik.errors.code && (
+                                            <Text>{forMik.errors.code}</Text>
+                                        )
+                                    }
+                                </div>
+                                {/* <Button label={"Submit"} type={"submit"} className="w-full py-1 text-sm bg-green-400 opacity-90 mt-3"/> */}
+                            
+                            </form >
 
-                                {
-                                    forMik.errors.code && (
-                                        <Text>{forMik.errors.code}</Text>
-                                    )
-                                }
-                            </div>
-                            {/* <Button label={"Submit"} type={"submit"} className="w-full py-1 text-sm bg-green-400 opacity-90 mt-3"/> */}
-                        
-                        </form >
+                        </Card>
 
-                    </Card>
+                    )}
 
-                    <Card border>
-                        <form onSubmit={forMik.handleSubmit} className=" h-[20rem] my-2 px-8 py-2 rounded-lg border-4 border-indigo-200 border-y-indigo-500 ">
-                            <div>
-                                <Text>{'Username'}</Text>
-                                <Input className="border-solid border-2 border-sky-500" 
-                                name="Username"
-                                value={forMik.values.username}
-                                onChange={forMik.handleChange("username")}
-                                />
+                    {step === 3 && (
+                        <Card border>
+                            <form onSubmit={forMik.handleSubmit} className=" h-[20rem] my-2 px-8 py-2 rounded-lg border-4 border-indigo-200 border-y-indigo-500 ">
+                                <div>
+                                    <Text>{'Username'}</Text>
+                                    <Input className="border-solid border-2 border-sky-500" 
+                                    name="Username"
+                                    value={forMik.values.username}
+                                    onChange={forMik.handleChange("username")}
+                                    />
 
-                                {
-                                    forMik.errors.username && (
-                                        <Text>{forMik.errors.username}</Text>
-                                    )
-                                }
-                            </div>
-                            <div>
-                                <Text>{'Password'}</Text>
-                                <Input className="border-solid border-2 border-sky-500" 
-                                name="Password"
-                                value={forMik.values.password}
-                                onChange={forMik.handleChange("password")}
-                                />
+                                    {
+                                        forMik.errors.username && (
+                                            <Text>{forMik.errors.username}</Text>
+                                        )
+                                    }
+                                </div>
+                                <div>
+                                    <Text>{'Password'}</Text>
+                                    <Input className="border-solid border-2 border-sky-500" 
+                                    name="Password"
+                                    value={forMik.values.password}
+                                    onChange={forMik.handleChange("password")}
+                                    />
 
-                                {
-                                    forMik.errors.password && (
-                                        <Text>{forMik.errors.password}</Text>
-                                    )
-                                }
-                            </div>
-                            <Button label={"Submit"} type={"submit"} className="w-full py-1 text-sm bg-green-400 opacity-90 mt-3"/>
-                        
-                        </form >
+                                    {
+                                        forMik.errors.password && (
+                                            <Text>{forMik.errors.password}</Text>
+                                        )
+                                    }
+                                </div>
+                                <Button label={"Submit"} type={"submit"} className="w-full py-1 text-sm bg-green-400 opacity-90 mt-3"/>
+                            
+                            </form >
+                        </Card>
+                    )}
 
-                    </Card>
+                    <Button label={"Previous"} onClick={handlePrevious} type={"button"} className="w-1/4 py-1 bg-green-400 opacity-90 mr-3"/>
+                    <Button label={"Next"} onClick={handleNext} type={"button"} className="w-1/4 py-1 bg-green-400 opacity-90"/>
+
                 </Card>
                 
                 <Card border className="text-sm h-[15rem] px-4 py-4 rounded-lg border-4 border-indigo-200 border-y-indigo-500 ">
