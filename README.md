@@ -1,3 +1,8 @@
+
+# React + TypeScript + Vite Deployment with Vercel
+
+[Temporary Assignment W-9 Result deploy use Vercel](https://module-4-imanmaris99.vercel.app/)
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
