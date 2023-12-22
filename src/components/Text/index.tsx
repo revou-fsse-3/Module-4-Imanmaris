@@ -1,9 +1,15 @@
 
-const Text = () => {
+import { HtmlHTMLAttributes } from "react";
 
-    return(
-        <p>
+interface Props extends HtmlHTMLAttributes<HTMLParagraphElement> {
+    children: string;
+}
 
+const Text = ({children, ...props } : Props) => {
+
+    return (
+        <p {...props}>
+            {children}
         </p>
     )
 }
