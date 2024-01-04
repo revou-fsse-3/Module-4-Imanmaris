@@ -1,5 +1,5 @@
 
-import { Button, Input, Text, Card, Table } from "../../components"
+import { Button, Input, Text, Card, Table,} from "../../components"
 import {useFormik} from "formik";
 import { useState } from "react";
 import * as yup from"yup";
@@ -71,65 +71,65 @@ const HomeContainer = () => {
     return (
 
         <>
+            
             <Card border className={'flex flex-wrap flex-col items-center'}>
+                
+                <Card border={false}>
+                    
+                    {step === 1 && (
+                        <Card border>
+                            <h2 className="w-full text-xl bg-sky-400/[.9] text-white flex justify-center rounded-md">Informasi Diri</h2>
+                            <form onSubmit={forMik.handleSubmit} className=" h-[20rem] my-5 px-8 py-2 rounded-lg border-4 border-indigo-200 border-y-indigo-500 ">
+                                <div>
+                                    <Text>{'Nama'}</Text>
+                                    <Input className="border-solid border-2 border-sky-500" 
+                                    name="nama"
+                                    value={forMik.values.name}
+                                    onChange={forMik.handleChange("name")}
+                                    />
 
-                <h1 className="w-full text-2xl bg-[#1da1f2] text-white flex justify-center">WELLCOME TO MY WEEK-9 ASSIGNMENT</h1>
+                                    {
+                                        forMik.errors.name && (
+                                            <Text>{forMik.errors.name}</Text>
+                                        )
+                                    }
+                                </div>
+                                <div>
+                                    <Text>{'Email'}</Text>
+                                    <Input className="border-solid border-2 border-sky-500" 
+                                    name="email"
+                                    value={forMik.values.email}
+                                    onChange={forMik.handleChange("email")}
+                                    />
 
-                    <Card border={false}>
-                        {step === 1 && (
-                            <Card border>
-                                <h2 className="w-full text-xl bg-sky-400/[.9] text-white flex justify-center rounded-md">Informasi Diri</h2>
-                                <form onSubmit={forMik.handleSubmit} className=" h-[20rem] my-5 px-8 py-2 rounded-lg border-4 border-indigo-200 border-y-indigo-500 ">
-                                    <div>
-                                        <Text>{'Nama'}</Text>
-                                        <Input className="border-solid border-2 border-sky-500" 
-                                        name="nama"
-                                        value={forMik.values.name}
-                                        onChange={forMik.handleChange("name")}
-                                        />
+                                    {
+                                        forMik.errors.email && (
+                                            <Text>{forMik.errors.email}</Text>
+                                        )
+                                    }
+                                </div>
+                                <div>
+                                    <Text>{'Tanggal Lahir'}</Text>
+                                    <Input className="border-solid border-2 border-sky-500" 
+                                    name="dob"
+                                    value={forMik.values.dob}
+                                    onChange={forMik.handleChange("dob")}
+                                    />
 
-                                        {
-                                            forMik.errors.name && (
-                                                <Text>{forMik.errors.name}</Text>
-                                            )
-                                        }
-                                    </div>
-                                    <div>
-                                        <Text>{'Email'}</Text>
-                                        <Input className="border-solid border-2 border-sky-500" 
-                                        name="email"
-                                        value={forMik.values.email}
-                                        onChange={forMik.handleChange("email")}
-                                        />
-
-                                        {
-                                            forMik.errors.email && (
-                                                <Text>{forMik.errors.email}</Text>
-                                            )
-                                        }
-                                    </div>
-                                    <div>
-                                        <Text>{'Tanggal Lahir'}</Text>
-                                        <Input className="border-solid border-2 border-sky-500" 
-                                        name="dob"
-                                        value={forMik.values.dob}
-                                        onChange={forMik.handleChange("dob")}
-                                        />
-
-                                        {
-                                            forMik.errors.dob && (
-                                                <Text>{forMik.errors.dob}</Text>
-                                            )
-                                        }
-                                    </div>
-                                    {/* <Button label={"Submit"} type={"submit"} className="w-full py-1 text-sm bg-green-400 opacity-90 mt-3"/> */}
+                                    {
+                                        forMik.errors.dob && (
+                                            <Text>{forMik.errors.dob}</Text>
+                                        )
+                                    }
+                                </div>
+                                {/* <Button label={"Submit"} type={"submit"} className="w-full py-1 text-sm bg-green-400 opacity-90 mt-3"/> */}
                                 
-                                </form >
+                             </form >
                                 
-                            </Card>
-                        )}
+                        </Card>
+                    )}
                         
-                        {step === 2 && (
+                    {step === 2 && (
                             <Card border>
                                 <h2 className="w-full text-xl bg-sky-400/[.9] text-white flex justify-center rounded-md">Informasi Tempat Tinggal</h2>
                                 <form onSubmit={forMik.handleSubmit} className=" h-[25rem] my-5 px-8 py-2 rounded-lg border-4 border-indigo-200 border-y-indigo-500 ">
@@ -235,13 +235,14 @@ const HomeContainer = () => {
                             </Card>
                         )}
 
-                        <Button label={"Previous"} onClick={handlePrevious} type={"button"} className="w-1/4 py-1 bg-green-400 opacity-90 mr-3"/>
-                        <Button label={"Next"} onClick={handleNext} type={"button"} className="w-1/4 py-1 bg-green-400 opacity-90"/>
+                    <Button label={"Previous"} onClick={handlePrevious} type={"button"} className="w-1/4 py-1 bg-green-400 opacity-90 mr-3"/>
+                    <Button label={"Next"} onClick={handleNext} type={"button"} className="w-1/4 py-1 bg-green-400 opacity-90"/>
 
-                    </Card>
+                </Card>
                     
-                    <Card border className="text-sm h-[15rem] px-4 py-4 rounded-lg border-4 border-indigo-200 border-y-indigo-500 ">
-                                <Table headers={[
+                <Card border className="text-sm h-[15rem] px-4 py-4 rounded-lg border-4 border-indigo-200 border-y-indigo-500 ">
+                    <Table 
+                        headers={[
                                     {
                                         label:"Nama",
                                         key:"name"
@@ -280,9 +281,12 @@ const HomeContainer = () => {
                                     }
 
 
-                                ]} data={users}
-                                />
-                    </Card>
+                                ]} 
+                    data={users}
+                    />
+                </Card>
+   
+
 
             </Card>
 
