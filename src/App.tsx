@@ -1,10 +1,11 @@
 // import { useState } from 'react'
 
-import { HomeContainer, AboutContainer, ContactContainer, ProductContainer } from './containers'
+import { HomeContainer, AboutContainer, ContactContainer, ApiContainer, ProductContainer, ProtectContainer } from './containers'
 import './App.css'
 // import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import PublicLayout from './containers/Layouts/PublicLayout';
+import ProtectLayout from './containers/Layouts/ProtectLayout';
 
 function App() {
 
@@ -17,12 +18,16 @@ function App() {
           element:<HomeContainer/>
         },
         {
-          path:'/About',
+          path:'/Login',
+          element:<ContactContainer/>
+        },
+        {
+          path:'/Category', 
           element:<AboutContainer/>
         },
         {
-          path:'/Contact', 
-          element:<ContactContainer/>
+          path:'/ConnectApi', 
+          element:<ApiContainer/>
         },
         {
           path:'/Product-specification/:id', 
@@ -34,6 +39,15 @@ function App() {
     {
       path:'/*', 
       element:<h1>ERROR 404</h1>
+    },
+    {
+      element: <ProtectLayout/>,
+      children: [(
+        {
+          path: '/protect',
+          element:<ProtectContainer/>
+        }
+      )]
     }
   ])
 
