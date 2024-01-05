@@ -1,22 +1,22 @@
 
 # Assignment Week-10 (React Route + TypeScript + Vite + React + etc )
 
-<h2 align="center">In Progress..!!! </h2>
+<h2 align="center">In Progress.. 🚧💥!!! </h2>
 
-### Deployment with Vercel ???
+### Deployment with Netlify
 
 **Result custom domain with DNS**
 
 |       Tool     | Tool Website | My Link Website with Custom Domain |
 |----------------|--------------|------------------------------------|
-|<img width="55%" img src="https://logowik.com/content/uploads/images/vercel1868.jpg">|[Vercell](https://vercel.com/) |[https://on progress../](https://vercel.com/)|
+|<img width="55%" img src="https://searchvectorlogo.com/wp-content/uploads/2023/06/netlify-logo-vector-2023.png">|[Netlify](https://netlify.com/) |[https://joyful-genie-6cd939.netlify.app/](https://joyful-genie-6cd939.netlify.app/)|
 
 
 
 <br>
 
 
-<h4 align="center">last created on January 03, 2024</h4>
+<h4 align="center">last created on January 05, 2024</h4>
 
 
 ---

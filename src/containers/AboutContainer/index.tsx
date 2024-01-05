@@ -46,7 +46,7 @@ const AboutContainer = () => {
                 <Card border={false}>
                     
                     <Card border>
-                        <h2 className="w-full text-xl bg-sky-400/[.9] text-white flex justify-center rounded-md">Registrasi Akun</h2>
+                        <h2 className="w-full text-xl bg-sky-400/[.9] text-white flex justify-center rounded-md">Informasi Tempat Tinggal</h2>
                         <form onSubmit={forMik.handleSubmit} className=" h-[25rem] my-5 px-8 py-2 rounded-lg border-4 border-indigo-200 border-y-indigo-500 ">
                             <div>
                                 <Text>{'Alamat Jalan'}</Text>
