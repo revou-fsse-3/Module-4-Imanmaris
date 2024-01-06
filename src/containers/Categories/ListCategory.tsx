@@ -40,7 +40,6 @@ const ListCategory: React.FC = () => {
 
   return (
 
-    <>
       <Card border className={'flex flex-wrap flex-col items-center'}>
       <h2 className="w-full text-xl bg-sky-400/[.9] text-white flex justify-center rounded-md">List Category</h2>
         <Card border={false}>
@@ -74,7 +73,6 @@ const ListCategory: React.FC = () => {
 
           </Card>
       </Card>
-    </>
 
   )
 }
