@@ -1,7 +1,7 @@
 
 
 import ListCategory from '../Categories/ListCategory';
-import CreateCategory from '../Categories/createCategory';
+import CreateCategory from '../Categories/CreateCategory';
 
 const CategoryContainer = () => {
   return (
