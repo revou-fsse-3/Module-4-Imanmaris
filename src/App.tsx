@@ -1,11 +1,13 @@
 // import { useState } from 'react'
 
-import { HomeContainer, AboutContainer, ContactContainer, ApiContainer, ProductContainer, ProtectContainer } from './containers'
+import { HomeContainer, ContactContainer, ApiContainer, ProductContainer, ProtectContainer } from './containers'
 import './App.css'
 // import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import PublicLayout from './containers/Layouts/PublicLayout';
 import ProtectLayout from './containers/Layouts/ProtectLayout';
+import CategoryLayout from './containers/Layouts/CategoryLayout';
+import CategoryContainer from './containers/CategoryContainer';
 
 function App() {
 
@@ -21,10 +23,10 @@ function App() {
           path:'/Login',
           element:<ContactContainer/>
         },
-        {
-          path:'/Category', 
-          element:<AboutContainer/>
-        },
+        // {
+        //   path:'/Category', 
+        //   element:<AboutContainer/>
+        // },
         {
           path:'/ConnectApi', 
           element:<ApiContainer/>
@@ -39,6 +41,15 @@ function App() {
     {
       path:'/*', 
       element:<h1>ERROR 404</h1>
+    },
+    {
+      element: <CategoryLayout/>,
+      children: [(
+        {
+          path: '/Category',
+          element:<CategoryContainer/>
+        }
+      )]
     },
     {
       element: <ProtectLayout/>,

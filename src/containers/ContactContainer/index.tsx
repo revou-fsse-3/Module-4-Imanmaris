@@ -2,11 +2,12 @@
 import { Button, Input, Text, Card, Table,} from "../../components"
 import {useFormik} from "formik";
 import { useState } from "react";
+import { userLogin } from './../../api/authApi';
 import * as yup from"yup";
 
 interface DataProps {
 
-    username:string;
+    email: string;
     password:string;
 }
 
@@ -16,15 +17,26 @@ const ContactContainer = () => {
 
     const forMik = useFormik({
         initialValues: {
-            username:"",
+            email:"",
             password:"",
         },
-        onSubmit: (values, {resetForm}) => {
+        onSubmit: async (values, {resetForm}) => {
             setUsers([...users, values])
             resetForm()
+            try {
+                const response = await userLogin(values);
+                const token = response.data.data.token;
+                localStorage.setItem('token', token);        
+                
+                // const handleInsertToken = () => {}
+        
+                console.log('Silahkan anda sudah login');
+              } catch (error) {
+                console.error(error);
+              }
         },
         validationSchema: yup.object({
-            username: yup.string().required(),
+            email: yup.string().email('invalid email format, example => agus@example.com').required('Email is required'),
             password: yup.string().required(),            
         })
     });
@@ -39,24 +51,26 @@ const ContactContainer = () => {
                         <h2 className="w-full text-xl bg-sky-400/[.9] text-white flex justify-center rounded-md">Login Akun</h2>
                         <form onSubmit={forMik.handleSubmit} className=" h-[20rem] my-5 px-8 py-2 rounded-lg border-4 border-indigo-200 border-y-indigo-500 ">
                             <div>
-                                <Text>{'Username'}</Text>
+                                <Text>{'email'}</Text>
                                 <Input className="border-solid border-2 border-sky-500" 
-                                name="Username"
-                                value={forMik.values.username}
-                                onChange={forMik.handleChange("username")}
+                                name="email"
+                                value={forMik.values.email}
+                                onBlur={forMik.handleBlur("email")}
+                                onChange={forMik.handleChange("email")}
                                 />
                                 {
-                                    forMik.errors.username && (
-                                        <Text>{forMik.errors.username}</Text>
+                                    forMik.errors.email && (
+                                        <Text>{forMik.errors.email}</Text>
                                     )
                                 }
                             </div>
 
                             <div>
                                 <Text>{'Password'}</Text>
-                                <Input className="border-solid border-2 border-sky-500" 
+                                <Input type="password" className="border-solid border-2 border-sky-500" 
                                 name="Password"
                                 value={forMik.values.password}
+                                onBlur={forMik.handleBlur("password")}
                                 onChange={forMik.handleChange("password")}
                                 />
 
@@ -70,15 +84,15 @@ const ContactContainer = () => {
                                 
                         </form >
                     </Card>
-
+ 
                 </Card>                                     
                     
                 <Card border className="w-[16rem] text-sm h-[10rem] px-4 py-7 rounded-lg border-4 border-indigo-200 border-y-indigo-500 ">
                     <Table 
                         headers={[
                                     {
-                                        label:"Username",
-                                        key:"username"
+                                        label:"email",
+                                        key:"email"
                                     },
                                     {
                                         label:"Password",

@@ -1,7 +1,8 @@
 
 import { Button, Input, Text, Card, Table,} from "../../components"
-import {useFormik} from "formik";
+import { useFormik } from "formik";
 import { useState } from "react";
+import { userRegister } from './../../api/authApi';
 import * as yup from"yup";
 
 interface DataProps {
@@ -20,9 +21,15 @@ const HomeContainer = () => {
             email:"",
             password:"",
         },
-        onSubmit: (values, {resetForm}) => {
+        onSubmit: async (values, {resetForm}) => {
             setUsers([...users, values])
             resetForm()
+            try {
+                await userRegister(values);
+                console.log('Selamat akun sudah terdaftar');
+              } catch (error) {
+                console.error(error);
+              }
         },
         validationSchema: yup.object({
             name: yup.string().required(),
@@ -42,9 +49,9 @@ const HomeContainer = () => {
     //     setSelectedUser(findUser);
     // }    
 
-    const handleInsertToken = () => {
-        localStorage.setItem ('token', '112233445566')
-    }
+    // const handleInsertToken = () => {
+    //     localStorage.setItem ('token', '112233445566')
+    // }
 
 
     return (
@@ -62,6 +69,7 @@ const HomeContainer = () => {
                                 <Input className="border-solid border-2 border-sky-500" 
                                 name="nama"
                                 value={forMik.values.name}
+                                onBlur={forMik.handleBlur("name")}
                                 onChange={forMik.handleChange("name")}
                                 />
 
@@ -76,6 +84,7 @@ const HomeContainer = () => {
                                 <Input className="border-solid border-2 border-sky-500" 
                                 name="email"
                                 value={forMik.values.email}
+                                onBlur={forMik.handleBlur("email")}
                                 onChange={forMik.handleChange("email")}
                                 />
 
@@ -87,9 +96,10 @@ const HomeContainer = () => {
                             </div>
                             <div>
                                 <Text>{'Password'}</Text>
-                                <Input className="border-solid border-2 border-sky-500" 
+                                <Input type="password" className="border-solid border-2 border-sky-500" 
                                 name="dob"
                                 value={forMik.values.password}
+                                onBlur={forMik.handleBlur("password")}
                                 onChange={forMik.handleChange("password")}
                                 />
 
@@ -106,8 +116,9 @@ const HomeContainer = () => {
                     </Card>   
 
                     <Card border className={'flex flex-wrap flex-col items-center'}>
-                        <Button label={"Login"} onClick={handleInsertToken} className="p-2 bg-green-400 opacity-90 rounded-lg"/>
-
+                        {/* <Button label={"Login"} onClick={handleInsertToken} className="p-2 bg-green-400 opacity-90 rounded-lg"/> */}
+                        <p className="mb-1 text-center text-sm text-slate-500">If you already have an account, you can log in directly</p>
+                        <a href="/login" className="p-1.5 border-2 rounded-lg mt-8 flex items-center justify-center space-x-4 text-sm font-semibold leading-6 text-slate-700">Login Here</a>
                     </Card>  
                 </Card>
                 

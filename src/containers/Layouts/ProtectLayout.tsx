@@ -1,22 +1,30 @@
 
 import { Navbar } from "../../components";
-import { Outlet, Navigate } from "react-router-dom";
+import { Outlet} from "react-router-dom";
+import { Footer } from "../../components";
 
 const ProtectLayout = () => {
+    
+    return (
+        <div>
+            <Navbar/>
+            <Outlet />
+            <Footer/>
+        </div>
+    )
+    // const token = localStorage.getItem("token");
+    // if (token) {
 
-    const token = localStorage.getItem("token");
-    if (token) {
+    //     return (
+    //         <div>
+    //             <Navbar/>
+    //             <Outlet />
+    //             <Footer/>
+    //         </div>
+    //     )
+    // }
 
-        return (
-            <div>
-                <Navbar/>
-                <Outlet />
-                <div>Masukan Token</div>
-            </div>
-        )
-    }
-
-    return <Navigate to="/" />
+    // return <Navigate to="/" />
 }
 
 export default ProtectLayout
