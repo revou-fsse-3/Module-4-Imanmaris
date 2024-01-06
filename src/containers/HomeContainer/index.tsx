@@ -118,7 +118,7 @@ const HomeContainer = () => {
                     <Card border className={'flex flex-wrap flex-col items-center'}>
                         {/* <Button label={"Login"} onClick={handleInsertToken} className="p-2 bg-green-400 opacity-90 rounded-lg"/> */}
                         <p className="mb-1 text-center text-sm text-slate-500">If you already have an account, you can log in directly</p>
-                        <a href="/login" className="p-1.5 border-2 rounded-lg mt-8 flex items-center justify-center space-x-4 text-sm font-semibold leading-6 text-slate-700">Login Here</a>
+                        <a href="/Login" className="p-1.5 border-2 rounded-lg mt-8 flex items-center justify-center space-x-4 text-sm font-semibold leading-6 text-slate-700">Login Here</a>
                     </Card>  
                 </Card>
                 
