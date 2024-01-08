@@ -61,8 +61,8 @@ const ListCategory: React.FC = () => {
                           <td>{category.name}</td>
                           <td>{category.is_active ? 'Active' : 'Deactive'}</td>
                           <td>
-                            <Button label={"Edit"} type={"submit"} className="w-full py-1 text-sm bg-green-400 opacity-90 mt-3" onClick={() => handleEdit(category.id, category.name, category.is_active)}/>
-                            <Button label={"Delete"} type={"submit"} className="w-full py-1 text-sm bg-red-400 opacity-90 mt-3" onClick={() => handleDelete(category.id)}/>
+                            <Button label={"Edit"} type={"submit"} className="w-full py-1 text-sm bg-blue-400 opacity-90 mt-3 text-black-300 hover:bg-blue-700 hover:text-white rounded-md" onClick={() => handleEdit(category.id, category.name, category.is_active)}/>
+                            <Button label={"Delete"} type={"submit"} className="w-full py-1 text-sm bg-red-400 opacity-90 mt-3 text-black-300 hover:bg-red-700 hover:text-white rounded-md" onClick={() => handleDelete(category.id)}/>
                           </td>
                         </tr>
                       ))}

@@ -5,6 +5,7 @@ import { CreateCategoryData } from '../../Interfaces/category';
 import { createCategory } from '../../api/categoryApi';
 import * as ValidationSchemas from '../../validations/validationSchemas';
 import { Button, Text, Card} from "../../components";
+// import { useNavigate } from "react-router-dom";
 // import { useState } from "react";
 // import { userLogin } from './../../api/authApi';
 // import * as yup from"yup";
@@ -13,13 +14,16 @@ import { Button, Text, Card} from "../../components";
 const CreateCategory: React.FC = () => {
   const { CreateCategorySchema } = ValidationSchemas;
   const token = localStorage.getItem('token') ?? '';
+  // const Navigate = useNavigate ();
 
   const formik = useFormik({
     initialValues: {
       name: '',
     },
     validationSchema: CreateCategorySchema,
-    onSubmit: async (values: CreateCategoryData) => {
+
+    onSubmit: async (values: CreateCategoryData,{resetForm}) => {
+      resetForm()
       try {
         await createCategory({name: values.name}, token);
         console.log('Berhasil bikin category bang!');
@@ -51,8 +55,9 @@ const CreateCategory: React.FC = () => {
                             <div>{formik.errors.name}</div>
                             ) : null}
                         </div>
-                        <Button label={"Create Category"} type={"submit"} className="w-full py-1 text-sm bg-green-400 opacity-90 mt-3"/>
-                        
+                        {/* <Button label={"Create Category"} type={"submit"} onClick={() => Navigate('/Category')} className="w-full py-1 text-sm bg-green-400 opacity-90 mt-3 text-black-300 hover:bg-green-700 hover:text-white rounded-md"/> */}
+                        <Button label={"Create Category"} type={"submit"} className="w-full py-1 text-sm bg-green-400 opacity-90 mt-3 text-black-300 hover:bg-green-700 hover:text-white rounded-md"/>
+
                     </form>
                 </Card>
 
