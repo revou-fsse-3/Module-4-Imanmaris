@@ -7,7 +7,7 @@ const Navbar = () => {
     
     return (
 
-        <nav className="bg-gray-800">
+        <nav className="bg-gray-700">
             <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
                 <div className="relative flex h-16 items-center justify-between">
                 <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -35,7 +35,7 @@ const Navbar = () => {
                         <button onClick={() => Navigate('/Login')}className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Login</button>
                         <button onClick={() => Navigate('/Category')} className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Category</button>
                         {/* <button onClick={() => Navigate('/ConnectApi')} className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Connect API</button> */}
-                        <button onClick={() => Navigate('/protect')} className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">User Profile</button>
+                        <button onClick={() => Navigate('/ConnectApi')} className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">User Profile</button>
                     </div>
                     </div>
                 </div>               

@@ -1,6 +1,6 @@
 // import { useState } from 'react'
 
-import { HomeContainer, ContactContainer, ApiContainer, ProductContainer} from './containers'
+import { HomeContainer, ContactContainer, ApiContainer, ProductContainer, ProtectContainer} from './containers'
 import './App.css'
 // import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
@@ -8,7 +8,7 @@ import PublicLayout from './containers/Layouts/PublicLayout';
 import ProtectLayout from './containers/Layouts/ProtectLayout';
 import CategoryLayout from './containers/Layouts/CategoryLayout';
 import CategoryContainer from './containers/CategoryContainer';
-import GetProfile from './containers/Categories/GetProfile'
+// import GetProfile from './containers/Categories/GetProfile'
 
 function App() {
 
@@ -48,7 +48,7 @@ function App() {
       children: [(
         {
           path: '/Category',
-          element:<CategoryContainer/>
+          element:<ProtectContainer/>
         }
       )]
     },
@@ -56,8 +56,8 @@ function App() {
       element: <ProtectLayout/>,
       children: [(
         {
-          path: '/protect',
-          element:<GetProfile/>
+          path:'/ConnectApi', 
+          element:<ApiContainer/>
         }
       )]
     }
