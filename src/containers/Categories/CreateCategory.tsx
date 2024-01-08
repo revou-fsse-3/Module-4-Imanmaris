@@ -1,10 +1,10 @@
 
-import React from 'react'
+import React from 'react';
 import { useFormik } from 'formik';
 import { CreateCategoryData } from '../../Interfaces/category';
 import { createCategory } from '../../api/categoryApi';
 import * as ValidationSchemas from '../../validations/validationSchemas';
-import { Button, Text, Card} from "../../components"
+import { Button, Text, Card} from "../../components";
 // import { useState } from "react";
 // import { userLogin } from './../../api/authApi';
 // import * as yup from"yup";

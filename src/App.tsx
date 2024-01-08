@@ -32,7 +32,7 @@ function App() {
           element:<ApiContainer/>
         },
         {
-          path:'/Product-specification/:id', 
+          path:'/Product-specification', 
           element:<ProductContainer/>
         }
 

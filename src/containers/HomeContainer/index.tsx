@@ -3,6 +3,7 @@ import { Button, Input, Text, Card, Table,} from "../../components"
 import { useFormik } from "formik";
 import { useState } from "react";
 import { userRegister } from './../../api/authApi';
+import { useNavigate } from "react-router-dom";
 import * as yup from"yup";
 
 interface DataProps {
@@ -14,10 +15,12 @@ interface DataProps {
 const HomeContainer = () => {
 
     const [users, setUsers] = useState<DataProps[]>([]); 
+    const Navigate = useNavigate();
 
     const forMik = useFormik({
         initialValues: {
             name:"",
+            phone:"",
             email:"",
             password:"",
         },
@@ -33,6 +36,7 @@ const HomeContainer = () => {
         },
         validationSchema: yup.object({
             name: yup.string().required(),
+            phone: yup.number().required(),
             email: yup.string().email('invalid email format, example => agus@example.com').required('Email is required'),
             password: yup.string().required('input your password'),
         }),
@@ -80,6 +84,21 @@ const HomeContainer = () => {
                                 }
                             </div>
                             <div>
+                                <Text>{'Phone'}</Text>
+                                <Input className="border-solid border-2 border-sky-500" 
+                                name="phone"
+                                value={forMik.values.phone}
+                                onBlur={forMik.handleBlur("phone")}
+                                onChange={forMik.handleChange("phone")}
+                                />
+
+                                {
+                                    forMik.errors.name && (
+                                        <Text>{forMik.errors.name}</Text>
+                                    )
+                                }
+                            </div>
+                            <div>
                                 <Text>{'Email'}</Text>
                                 <Input className="border-solid border-2 border-sky-500" 
                                 name="email"
@@ -118,7 +137,8 @@ const HomeContainer = () => {
                     <Card border className={'flex flex-wrap flex-col items-center'}>
                         {/* <Button label={"Login"} onClick={handleInsertToken} className="p-2 bg-green-400 opacity-90 rounded-lg"/> */}
                         <p className="mb-1 text-center text-sm text-slate-500">If you already have an account, you can log in directly</p>
-                        <a href="/Login" className="p-1.5 border-2 rounded-lg mt-8 flex items-center justify-center space-x-4 text-sm font-semibold leading-6 text-slate-700">Login Here</a>
+                        {/* <a href="/Login" className="p-1.5 border-2 rounded-lg mt-8 flex items-center justify-center space-x-4 text-sm font-semibold leading-6 text-slate-700">Login Here</a> */}
+                        <Button label="Login Here" onClick={() => Navigate('/Login')}className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"/>
                     </Card>  
                 </Card>
                 

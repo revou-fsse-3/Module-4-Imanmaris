@@ -34,8 +34,8 @@ const Navbar = () => {
                         <button onClick={() => Navigate('/')} className="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Home</button>
                         <button onClick={() => Navigate('/Login')}className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Login</button>
                         <button onClick={() => Navigate('/Category')} className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Category</button>
-                        <button onClick={() => Navigate('/ConnectApi')} className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Connect API</button>
-                        <button onClick={() => Navigate('/protect')} className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Our Address</button>
+                        {/* <button onClick={() => Navigate('/ConnectApi')} className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Connect API</button> */}
+                        <button onClick={() => Navigate('/protect')} className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">User Profile</button>
                     </div>
                     </div>
                 </div>               
