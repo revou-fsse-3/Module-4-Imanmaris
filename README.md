@@ -1,7 +1,7 @@
 
 # Assignment Week-10 (React Route + TypeScript + Vite + React + etc )
 
-<h2 align="center">In Progress.. 🚧💥!!! </h2>
+<h2 align="center"> Specifications are finally met 🚧💥!!! </h2>
 
 ### Deployment with Netlify
 
@@ -16,7 +16,7 @@
 <br>
 
 
-<h4 align="center">last created on January 05, 2024</h4>
+<h4 align="center">last created on January 8, 2024</h4>
 
 
 ---

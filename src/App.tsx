@@ -7,7 +7,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import PublicLayout from './containers/Layouts/PublicLayout';
 import ProtectLayout from './containers/Layouts/ProtectLayout';
 import CategoryLayout from './containers/Layouts/CategoryLayout';
-import CategoryContainer from './containers/CategoryContainer';
+// import CategoryContainer from './containers/CategoryContainer';
 // import GetProfile from './containers/Categories/GetProfile'
 
 function App() {
@@ -56,6 +56,7 @@ function App() {
       element: <ProtectLayout/>,
       children: [(
         {
+
           path:'/ConnectApi', 
           element:<ApiContainer/>
         }
