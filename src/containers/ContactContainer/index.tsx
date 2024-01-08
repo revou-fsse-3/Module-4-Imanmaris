@@ -1,5 +1,5 @@
 
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Button, Input, Text, Card, Table} from "../../components"
 import {useFormik} from "formik";
 import { useState } from "react";
@@ -17,7 +17,7 @@ import { LoginData } from "../../Interfaces/auth";
 const ContactContainer = () => {
 
     const [users, setUsers] = useState<LoginData[]>([]); 
-    // const Navigate = useNavigate();
+    const Navigate = useNavigate();
     const forMik = useFormik({
         initialValues: {
             email:"",
@@ -92,6 +92,13 @@ const ContactContainer = () => {
 
                         </form >
                     </Card>
+
+                    <Card border className={'flex flex-wrap flex-col items-center'}>
+                        {/* <Button label={"Login"} onClick={handleInsertToken} className="p-2 bg-green-400 opacity-90 rounded-lg"/> */}
+                        <p className="mb-1 text-center text-sm text-slate-500">If you are logged in, you can access = <b> the category menu </b></p>
+                        {/* <a href="/Login" className="p-1.5 border-2 rounded-lg mt-8 flex items-center justify-center space-x-4 text-sm font-semibold leading-6 text-slate-700">Login Here</a> */}
+                        <Button label="Press Here" onClick={() => Navigate('/Category')}className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"/>
+                    </Card>  
  
                 </Card>  
 
