@@ -1,7 +1,7 @@
 
 # Assignment Week-10 (React Route + TypeScript + Vite + React + etc )
 
-<h2 align="center"> Specifications are finally met 🚧💥!!! </h2>
+<h2 align="center"> Specifications are finally met 💥</h2>
 
 ### Deployment with Netlify
 

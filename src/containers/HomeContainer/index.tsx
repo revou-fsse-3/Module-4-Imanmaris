@@ -7,7 +7,8 @@ import { useNavigate } from "react-router-dom";
 import * as yup from"yup";
 
 interface DataProps {
-    name:string;
+    name: string;
+    phone: number;
     email: string;
     password: string;
 }
@@ -20,7 +21,7 @@ const HomeContainer = () => {
     const forMik = useFormik({
         initialValues: {
             name:"",
-            phone:"",
+            phone:0,
             email:"",
             password:"",
         },
@@ -67,7 +68,7 @@ const HomeContainer = () => {
                     
                     <Card border>
                         <h2 className="w-full text-xl bg-sky-400/[.9] text-white flex justify-center rounded-md">Registrasi Akun</h2>
-                        <form onSubmit={forMik.handleSubmit} className=" h-[20rem] my-5 px-8 py-2 rounded-lg border-4 border-indigo-200 border-y-indigo-500 ">
+                        <form onSubmit={forMik.handleSubmit} className=" h-[25rem] my-5 px-8 py-2 rounded-lg border-4 border-indigo-200 border-y-indigo-500 ">
                             <div>
                                 <Text>{'Nama'}</Text>
                                 <Input className="border-solid border-2 border-sky-500" 
@@ -131,40 +132,44 @@ const HomeContainer = () => {
                             <Button label={"Submit"} type={"submit"} className="w-full py-1 text-sm bg-green-400 opacity-90 mt-3"/>
                                 
                         </form >
-                                
+
+                        <Card border className={'flex flex-wrap flex-col items-center'}>
+                            {/* <Button label={"Login"} onClick={handleInsertToken} className="p-2 bg-green-400 opacity-90 rounded-lg"/> */}
+                            <p className="mb-1 text-center text-sm text-slate-500">If you already have an account, you can log in directly</p>
+                            {/* <a href="/Login" className="p-1.5 border-2 rounded-lg mt-8 flex items-center justify-center space-x-4 text-sm font-semibold leading-6 text-slate-700">Login Here</a> */}
+                            <Button label="Login Here" onClick={() => Navigate('/Login')}className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"/>
+                        </Card>
+
                     </Card>   
 
-                    <Card border className={'flex flex-wrap flex-col items-center'}>
-                        {/* <Button label={"Login"} onClick={handleInsertToken} className="p-2 bg-green-400 opacity-90 rounded-lg"/> */}
-                        <p className="mb-1 text-center text-sm text-slate-500">If you already have an account, you can log in directly</p>
-                        {/* <a href="/Login" className="p-1.5 border-2 rounded-lg mt-8 flex items-center justify-center space-x-4 text-sm font-semibold leading-6 text-slate-700">Login Here</a> */}
-                        <Button label="Login Here" onClick={() => Navigate('/Login')}className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"/>
-                    </Card>  
-                </Card>
-                
-                     
-                    
-                <Card border className="text-sm h-[15rem] px-4 py-4 rounded-lg border-4 border-indigo-200 border-y-indigo-500 ">
-                    <Table 
-                        headers={[
-                                    {
-                                        label:"Nama",
-                                        key:"name"
-                                    },
-                                    {
-                                        label:"Email",
-                                        key:"email"
-                                    },
-                                    {
-                                        label:"Password",
-                                        key:"password"
-                                    }
-                                ]} 
-                    data={users}
-                    />
-                </Card>
-   
 
+
+                    <Card border className={'flex flex-wrap flex-col items-center'}>
+
+                        {/* <Card border className="text-sm h-[15rem] px-4 py-4 rounded-lg border-4 border-indigo-200 border-y-indigo-500 "> */}
+                        <Card border={false}>
+
+                            <Table 
+                                headers={[
+                                            {
+                                                label:"Nama",
+                                                key:"name"
+                                            },
+                                            {
+                                                label:"Email",
+                                                key:"email"
+                                            },
+                                            {
+                                                label:"Phone Number",
+                                                key:"phone"
+                                            }
+                                        ]} 
+                            data={users}
+                            />
+                        </Card>
+                    </Card>
+
+                </Card>
 
             </Card>
 
